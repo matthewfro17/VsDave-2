@@ -33,6 +33,8 @@ class StoryMenuState extends MusicBeatState
 
 	var txtWeekTitle:FlxText;
 
+	var diff:Int;
+	
 	var curWeek:Int = 0;
 
 	var yellowBG:FlxSprite;
