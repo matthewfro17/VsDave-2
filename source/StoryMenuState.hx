@@ -345,7 +345,7 @@ class StoryMenuState extends MusicBeatState
 		// txtTracklist.text = txtTracklist.text += " - ";
 
 		#if !switch
-		intendedScore = Highscore.getWeekScore(curWeek);
+		intendedScore = Highscore.getWeekScore(curWeek, diff);
 		#end
 	}
 }
