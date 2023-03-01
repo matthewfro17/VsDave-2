@@ -772,14 +772,14 @@ class FreeplayState extends MusicBeatState
 		if (songs[curSelected].songName != 'Enter Terminal')
 		{
 			#if !switch
-			intendedScore = Highscore.getScore(songs[curSelected].songName);
+			intendedScore = Highscore.getScore(songs[curSelected].songName, diff);
 			#end
 
 			#if PRELOAD_ALL
 			FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
 			#end
 
-			curChar = Highscore.getChar(songs[curSelected].songName);
+			curChar = Highscore.getChar(songs[curSelected].songName, diff);
 		}
 
 		if (diffText != null)
