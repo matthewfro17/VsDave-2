@@ -330,7 +330,7 @@ class Note extends FlxSprite
 				str = 'cheating';
 			}
 		}
-		if (str == 'cheating' && PlayState.modchart) {
+		case 'cheating':
 			if (mania == 0) {
 				switch (originalType)
 				{
@@ -391,47 +391,22 @@ class Note extends FlxSprite
 			notetolookfor = not;
 			animation.play(notes[not] + 'Scroll');
 		}
+
 		if (isInState('PlayState'))
 		{
 			SearchForStrum(musthit);
 		}
-		if (!isSustainNote) {
-			if (!PlayState.modchart) {
-				if (PlayState.SONG.song.toLowerCase() == 'cheating')
-					LocalScrollSpeed = 0.75; // target practice old
-				if (PlayState.SONG.song.toLowerCase() == 'kabunga')
-					LocalScrollSpeed = 0.81;
-			}
-			if (PlayState.SONG.song.toLowerCase() == 'unfairness')
+
+		if (PlayState.SONG.song.toLowerCase() == 'exploitation')
+		{
+			var rng:FlxRandom = new FlxRandom();
+			if (rng.int(0, 484) == 1)
 			{
-				if (PlayState.modchartoption) {
-					var rng:FlxRandom = new FlxRandom();
-					if (rng.int(0, 120) == 1)
-					{
-						LocalScrollSpeed = 0.1;
-					}
-					else
-					{
-						LocalScrollSpeed = rng.float(1, 3);
-					}
-				} else {
-					LocalScrollSpeed = 2;
-				}
+				LocalScrollSpeed = 0.1;
 			}
-			if (PlayState.SONG.song.toLowerCase() == 'exploitation')
+			else
 			{
-					var rng:FlxRandom = new FlxRandom();
-					if (rng.int(0, 484) == 1)
-					{
-						LocalScrollSpeed = 0.1;
-					}
-					else
-					{
-						LocalScrollSpeed = rng.float(2.9, 3.6);
-					}
-				} else {
-					LocalScrollSpeed = 3;
-				}
+				LocalScrollSpeed = rng.float(2.9, 3.6);
 			}
 		}
 
