@@ -330,7 +330,7 @@ class Note extends FlxSprite
 				str = 'cheating';
 			}
 		}
-		if (str == 'cheating' && PlayState.modchart) {
+		if (str == 'cheating' && PlayState.modchartoption) {
 			if (mania == 0) {
 				switch (originalType)
 				{
@@ -396,7 +396,7 @@ class Note extends FlxSprite
 			SearchForStrum(musthit);
 		}
 		if (!isSustainNote) {
-			if (!PlayState.modchart) {
+			if (!PlayState.modchartoption) {
 				if (PlayState.SONG.song.toLowerCase() == 'cheating')
 					LocalScrollSpeed = 0.75; // target practice old
 				if (PlayState.SONG.song.toLowerCase() == 'kabunga')
@@ -420,7 +420,7 @@ class Note extends FlxSprite
 			}
 			if (PlayState.SONG.song.toLowerCase() == 'exploitation')
 			{
-				if (PlayState.modchart) {
+				if (PlayState.modchartoption) {
 					var rng:FlxRandom = new FlxRandom();
 					if (rng.int(0, 484) == 1)
 					{
