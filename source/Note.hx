@@ -330,7 +330,7 @@ class Note extends FlxSprite
 				str = 'cheating';
 			}
 		}
-		if (str == 'cheating' && PlayState.modchartoption) {
+		if (str == 'cheating') {
 			if (mania == 0) {
 				switch (originalType)
 				{
@@ -395,44 +395,28 @@ class Note extends FlxSprite
 		{
 			SearchForStrum(musthit);
 		}
-		if (!isSustainNote) {
-			if (!PlayState.modchartoption) {
-				if (PlayState.SONG.song.toLowerCase() == 'cheating')
-					LocalScrollSpeed = 0.75; // target practice old
-				if (PlayState.SONG.song.toLowerCase() == 'kabunga')
-					LocalScrollSpeed = 0.81;
-			}
-			if (PlayState.SONG.song.toLowerCase() == 'unfairness')
+		if (PlayState.SONG.song.toLowerCase() == 'unfairness')
+		{
+			var rng:FlxRandom = new FlxRandom();
+			if (rng.int(0, 120) == 1)
 			{
-				if (PlayState.modchartoption) {
-					var rng:FlxRandom = new FlxRandom();
-					if (rng.int(0, 120) == 1)
-					{
-						LocalScrollSpeed = 0.1;
-					}
-					else
-					{
-						LocalScrollSpeed = rng.float(1, 3);
-					}
-				} else {
-					LocalScrollSpeed = 2;
-				}
+				LocalScrollSpeed = 0.1;
 			}
-			if (PlayState.SONG.song.toLowerCase() == 'exploitation')
+			else
 			{
-				if (PlayState.modchartoption) {
-					var rng:FlxRandom = new FlxRandom();
-					if (rng.int(0, 484) == 1)
-					{
-						LocalScrollSpeed = 0.1;
-					}
-					else
-					{
-						LocalScrollSpeed = rng.float(2.9, 3.6);
-					}
-				} else {
-					LocalScrollSpeed = 3;
-				}
+				LocalScrollSpeed = rng.float(1, 3);
+			}
+		}
+		if (PlayState.SONG.song.toLowerCase() == 'exploitation')
+		{
+			var rng:FlxRandom = new FlxRandom();
+			if (rng.int(0, 484) == 1)
+			{
+				LocalScrollSpeed = 0.1;
+			}
+			else
+			{
+				LocalScrollSpeed = rng.float(2.9, 3.6);
 			}
 		}
 
