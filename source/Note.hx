@@ -428,9 +428,6 @@ class Note extends FlxSprite
 
 			animation.play(notes[noteData % Main.keyAmmo[mania]] + 'holdend');
 
-			if (PlayState.scrollType == 'downscroll')
-			{
-				flipY = true;
 			}
 
 			updateHitbox();
