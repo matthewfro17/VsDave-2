@@ -92,7 +92,7 @@ import lime.ui.Window;
 import openfl.geom.Rectangle;
 import openfl.display.Sprite;
 
-import hxcodec.VideoHandler;
+import vlc.MP4Handler;
 
 using StringTools;
 
@@ -194,6 +194,7 @@ class PlayState extends MusicBeatState
 
 	private static var prevCamFollow:FlxObject;
 	public static var recursedStaticWeek:Bool;
+	
 
 	private var strumLine:FlxSprite;
 	private var strumLineNotes:FlxTypedGroup<StrumNote>;
@@ -298,17 +299,16 @@ class PlayState extends MusicBeatState
 	var bfNoteCamOffset:Array<Float> = new Array<Float>();
 	var dadNoteCamOffset:Array<Float> = new Array<Float>();
 
-	var video:VideoHandler;
+	var video:MP4Handler;
 	public var modchart:ExploitationModchartType;
 	public static var modchartoption:Bool = true;
 	var weirdBG:FlxSprite;
-
-	public static var modchartoption:Bool = true;
 
 	var mcStarted:Bool = false; 
 	public var noMiss:Bool = false;
 	public var creditsPopup:CreditsPopUp;
 	public var blackScreen:FlxSprite;
+
 
 	//bg stuff
 	var baldi:BGSprite;
@@ -533,8 +533,10 @@ class PlayState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 		eyesoreson = FlxG.save.data.eyesores;
+		#if debug
 		botPlay = FlxG.save.data.botplay;
-		modchartoption = FlxG.save.data.modchart;
+		#end
+		modchartoption = !FlxG.save.data.modchart;
 
 		sicks = 0;
 		bads = 0;
